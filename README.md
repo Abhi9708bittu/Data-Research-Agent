@@ -1,4 +1,4 @@
-# Data & Research AI Agents (Streamlit)
+# Data & Research Agent (Streamlit)
 
 This Streamlit app bundles four practical AI agents:
 - Document Analyzer: Upload PDFs, build a local FAISS index (OpenAI embeddings), and ask questions with citations.
@@ -30,7 +30,7 @@ py -3.11 -m pip install --upgrade pip
 
 1) Clone or download this folder, then install dependencies:
 ```powershell
-py -3.11 -m pip install -r E:\Chatbot\requirements.txt
+py -3.11 -m pip install -r "E:\Data & Research Agent\requirements.txt"
 ```
 
 2) Provide your OpenAI API key (choose one):
@@ -38,14 +38,14 @@ py -3.11 -m pip install -r E:\Chatbot\requirements.txt
 ```powershell
 $env:OPENAI_API_KEY = "sk-..."
 ```
-- Or Streamlit secrets file at `E:\Chatbot\.streamlit\secrets.toml`:
+- Or Streamlit secrets file at `E:\Data & Research Agent\.streamlit\secrets.toml`:
 ```toml
 OPENAI_API_KEY = "sk-..."
 ```
 
 ## Run
 ```powershell
-py -3.11 -m streamlit run E:\Chatbot\app.py
+py -3.11 -m streamlit run "E:\Data & Research Agent\app.py"
 ```
 Then open http://localhost:8501
 
@@ -53,7 +53,7 @@ Then open http://localhost:8501
 
 ### Document Analyzer
 - Upload one or more PDFs.
-- Click "Ingest Documents" to build/update the FAISS index stored at `E:/Chatbot/storage/faiss_index`.
+- Click "Ingest Documents" to build/update the FAISS index stored at `E:/Data & Research Agent/storage/faiss_index`.
 - Ask a question; answers include cited passages.
 
 ### News Summarizer
@@ -70,7 +70,7 @@ Then open http://localhost:8501
 
 ## Project Structure
 ```
-E:/Chatbot
+E:/Data & Research Agent
 ├─ app.py                   # Streamlit UI with tabs
 ├─ requirements.txt
 ├─ agents/
@@ -112,21 +112,21 @@ flowchart TD
 - Model dropdown in sidebar (default `gpt-4o-mini`)
 - Temperature slider (default 0.2)
 - Top-K chunks for retrieval (default 4)
-- Index path: `E:/Chatbot/storage/faiss_index`
+- Index path: `E:/Data & Research Agent/storage/faiss_index`
 
 ## Troubleshooting
 - "No module named streamlit":
   - You likely installed packages with a different Python. Install with the same interpreter you run:
     ```powershell
-    py -3.11 -m pip install -r E:\Chatbot\requirements.txt
-    py -3.11 -m streamlit run E:\Chatbot\app.py
+    py -3.11 -m pip install -r "E:\Data & Research Agent\requirements.txt"
+    py -3.11 -m streamlit run "E:\Data & Research Agent\app.py"
     ```
 - "pip is not recognized":
   - Use the launcher: `py -3.11 -m pip ...` (as shown above).
 - SSL or fetch errors in News/Market tabs:
   - Some sites block scraping; try different sources or fewer URLs.
 - FAISS load errors after manual file changes:
-  - Delete the folder `E:/Chatbot/storage/faiss_index` and re-ingest.
+  - Delete the folder `E:/Data & Research Agent/storage/faiss_index` and re-ingest.
 
 ## Deployment (Streamlit Community Cloud)
 1) Push this folder to a GitHub repo.
